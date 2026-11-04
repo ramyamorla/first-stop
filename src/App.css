@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #24372d;
+  background: #f7f8f3;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Main layout */
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Left brand panel */
+
+.brand-panel {
+  background: #183f30;
+  border-radius: 22px;
+  padding: 38px 48px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 700px;
+}
+
+.brand-logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  color: #b8d69b;
+  font-size: 30px;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 2;
+  margin-top: 35px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #91b99a;
+}
+
+.brand-content h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(35px, 4vw, 55px);
+  line-height: 1.18;
+  margin-top: 20px;
+  letter-spacing: -2px;
+}
+
+.brand-content p {
+  color: #c4d4c9;
+  max-width: 390px;
+  line-height: 1.8;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+/* Agricultural illustration */
+
+.farm-illustration {
+  height: 190px;
+  margin-top: 35px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    #a9c9a0 0%,
+    #d9e2bb 100%
+  );
+}
+
+.sun {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #f5e6a9;
+  top: 25px;
+  right: 70px;
+}
+
+.hill {
+  position: absolute;
+  width: 140%;
+  height: 120px;
+  border-radius: 50% 50% 0 0;
+  bottom: -55px;
+  left: -15%;
+}
+
+.hill-one {
+  background: #668b57;
+  transform: rotate(-8deg);
+}
+
+.hill-two {
+  background: #527b49;
+  bottom: -80px;
+  left: 15%;
+  transform: rotate(7deg);
+}
+
+.hill-three {
+  background: #365e3e;
+  bottom: -105px;
+  left: -20%;
+}
+
+.field-lines {
+  position: absolute;
+  inset: 100px 0 0;
+  background: repeating-linear-gradient(
+    170deg,
+    transparent 0 13px,
+    rgba(255,255,255,0.15) 14px 16px
+  );
+  z-index: 2;
+}
+
+.brand-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #b6cabe;
+  font-size: 11px;
+  margin-top: 30px;
+}
+
+/* Right form panel */
+
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 430px;
+}
+
+.form-heading {
+  margin-bottom: 30px;
+}
+
+.form-heading h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  letter-spacing: -1px;
+  margin: 12px 0;
+}
+
+.form-heading p {
+  color: #7a887e;
+  font-size: 14px;
+}
+
+/* Tabs */
+
+.auth-tabs {
+  display: flex;
+  background: #e9eee7;
+  padding: 5px;
+  border-radius: 9px;
+  margin-bottom: 25px;
+}
+
+.auth-tabs button {
+  flex: 1;
+  border: none;
+  padding: 11px;
+  border-radius: 7px;
+  color: #718074;
+  background: transparent;
+  font-weight: 600;
+}
+
+.auth-tabs button.active {
+  background: white;
+  color: #285b3c;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.05);
+}
+
+/* Form fields */
+
+.auth-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form-wrapper form > label,
+.password-heading label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.auth-form-wrapper input {
+  width: 100%;
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  padding: 14px;
+  outline: none;
+  background: #fff;
+  font-size: 13px;
+}
+
+.auth-form-wrapper input:focus {
+  border-color: #4e805d;
+  box-shadow: 0 0 0 3px rgba(78,128,93,0.10);
+}
+
+.auth-form-wrapper input::placeholder {
+  color: #a6afa8;
+}
+
+.password-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.text-link,
+.form-bottom button {
+  background: none;
+  border: none;
+  color: #39764b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 65px;
+}
+
+.show-password {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #39764b;
+  font-size: 12px;
+}
+
+.password-hint {
+  color: #839087;
+  font-size: 11px;
+}
+
+/* Submit button */
+
+.submit-button {
+  margin-top: 18px;
+  padding: 15px;
+  background: #285b3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.submit-button:hover {
+  background: #19472e;
+}
+
+.submit-button span {
+  font-size: 18px;
+}
+
+/* Footer */
+
+.form-bottom {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #77847a;
+}
+
+.terms {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #9ba59d;
+  margin-top: 35px;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 850px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .brand-panel {
+    display: none;
+  }
+
+  .form-panel {
+    padding: 35px 15px;
+  }
+
+  .mobile-logo {
+    display: block;
+    color: #285b3c;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 45px;
+  }
+
+  .auth-form-wrapper {
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-heading h2 {
+    font-size: 29px;
+  }
+}
+
+/* FARMER PROFILE */
+
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7f3;
+  color: #263b30;
+}
+
+.profile-sidebar {
+  width: 245px;
+  background: #183f30;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.profile-brand {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 55px;
+}
+
+.profile-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-item {
+  padding: 13px;
+  border-radius: 8px;
+  color: #c1d0c5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  background: #315b43;
+  color: white;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 25px;
+  border-top: 1px solid #456453;
+}
+
+.avatar,
+.large-avatar {
+  display: grid;
+  place-items: center;
+  background: #d8e8cc;
+  color: #285b3c;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebar-bottom strong,
+.sidebar-bottom small {
+  display: block;
+}
+
+.sidebar-bottom strong {
+  font-size: 12px;
+}
+
+.sidebar-bottom small {
+  color: #c1d0c5;
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.profile-main {
+  flex: 1;
+  padding: 55px;
+  max-width: 1200px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 15px;
+}
+
+.profile-eyebrow {
+  font-size: 11px;
+  color: #65836d;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.profile-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.profile-header p,
+.profile-card-heading p,
+.profile-section-heading p {
+  color: #87938a;
+  font-size: 13px;
+}
+
+.account-badge {
+  background: #e5efe3;
+  color: #347248;
+  padding: 9px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.profile-card {
+  background: white;
+  border: 1px solid #e8ede6;
+  border-radius: 13px;
+  padding: 30px;
+  margin-bottom: 22px;
+}
+
+.profile-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid #edf0eb;
+}
+
+.large-avatar {
+  width: 65px;
+  height: 65px;
+  font-size: 25px;
+}
+
+.profile-card-heading h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.profile-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0;
+  gap: 15px;
+}
+
+.profile-section-heading h3,
+.account-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.edit-button,
+.save-button {
+  background: #285b3c;
+  color: white;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.profile-field label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-field input {
+  padding: 13px;
+  border: 1px solid #e0e6df;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #34473a;
+  background: white;
+}
+
+.profile-field input:disabled {
+  background: #f8faf7;
+  color: #68766d;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.cancel-button {
+  background: white;
+  border: 1px solid #dce4dc;
+  padding: 11px 18px;
+  border-radius: 7px;
+}
+
+.success-message {
+  color: #347248;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.account-card h3 {
+  margin-bottom: 20px;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid #edf0eb;
+  font-size: 13px;
+  gap: 15px;
+}
+
+.account-row span {
+  color: #829087;
+}
+
+.status-active {
+  color: #347248;
+}
+
+@media (max-width: 750px) {
+  .profile-page {
+    flex-direction: column;
+  }
+
+  .profile-sidebar {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+
+  .profile-brand {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .profile-sidebar nav {
+    flex-direction: row;
+  }
+
+  .nav-item,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .logout-button {
+    margin-top: 0;
+  }
+
+  .profile-main {
+    padding: 25px 15px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+}
+
+.logout-button {
+  margin-top: 15px;
+  padding: 13px;
+  text-align: left;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #f1c7b9;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background: #315b43;
+  color: white;
+}
