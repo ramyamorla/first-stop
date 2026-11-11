@@ -413,6 +413,15 @@ button {
   cursor: pointer;
 }
 
+button.nav-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
 .nav-item.active,
 .nav-item:hover {
   background: #315b43;
@@ -648,7 +657,7 @@ button {
     flex-direction: row;
   }
 
-  .nav-item,
+  div.nav-item,
   .sidebar-bottom {
     display: none;
   }

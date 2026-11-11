@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Profile({ onLogout }) {
+function Profile({ onDashboard, onLogout }) {
   const [editing, setEditing] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -10,6 +10,8 @@ function Profile({ onLogout }) {
     email: "farmer@example.com",
     phone: "",
   });
+
+  const [originalProfile, setOriginalProfile] = useState(profile);
 
   const handleChange = (e) => {
     setProfile({
@@ -21,8 +23,15 @@ function Profile({ onLogout }) {
 
   const handleSave = (e) => {
     e.preventDefault();
+    setOriginalProfile(profile);
     setEditing(false);
     setSaved(true);
+  };
+
+  const handleCancel = () => {
+    setProfile(originalProfile);
+    setEditing(false);
+    setSaved(false);
   };
 
   return (
@@ -31,24 +40,23 @@ function Profile({ onLogout }) {
         <div className="profile-brand">✳ first stop</div>
 
         <nav>
-          <div className="nav-item">⌂ Dashboard</div>
-          <div className="nav-item active">◉ My Profile</div>
+          <button className="nav-item" onClick={onDashboard}>
+            ⌂ Dashboard
+          </button>
+
+          <button className="nav-item active">
+            ◉ My Profile
+          </button>
+
           <div className="nav-item">▦ My Farms</div>
           <div className="nav-item">♧ My Products</div>
           <div className="nav-item">⇄ Shipments</div>
           <div className="nav-item">⚙ Settings</div>
-          <button className="logout-button" onClick={onLogout}>
-            ↪ Logout
-          </button>
         </nav>
 
-        <div className="sidebar-bottom">
-          <div className="avatar">F</div>
-          <div>
-            <strong>{profile.fullName}</strong>
-            <small>Farmer Account</small>
-          </div>
-        </div>
+        <button className="logout-button" onClick={onLogout}>
+          ↪ Logout
+        </button>
       </aside>
 
       <main className="profile-main">
@@ -58,6 +66,7 @@ function Profile({ onLogout }) {
             <h1>My Profile</h1>
             <p>Manage your personal and farm information.</p>
           </div>
+
           <span className="account-badge">● Farmer Account</span>
         </header>
 
@@ -66,6 +75,7 @@ function Profile({ onLogout }) {
             <div className="large-avatar">
               {profile.fullName.charAt(0).toUpperCase() || "F"}
             </div>
+
             <div>
               <h2>{profile.fullName}</h2>
               <p>{profile.farmName}</p>
@@ -142,10 +152,7 @@ function Profile({ onLogout }) {
                 <button
                   type="button"
                   className="cancel-button"
-                  onClick={() => {
-                    setEditing(false);
-                    setSaved(false);
-                  }}
+                  onClick={handleCancel}
                 >
                   Cancel
                 </button>
@@ -166,14 +173,17 @@ function Profile({ onLogout }) {
 
         <section className="profile-card account-card">
           <h3>Account Information</h3>
+
           <div className="account-row">
             <span>Account type</span>
             <strong>Farmer</strong>
           </div>
+
           <div className="account-row">
             <span>Account status</span>
             <strong className="status-active">Active (Preview)</strong>
           </div>
+
           <div className="account-row">
             <span>Farm setup</span>
             <strong>Not configured yet</strong>
